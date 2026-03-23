@@ -34,9 +34,11 @@ while attempts > 0:
     print(f"Intentos restantes: {attempts}")
     print(f"Letras usadas: {', '.join(guessed)}")
 
-    letter = input("Ingresá una letra: ")   
+    letter = input("Ingresá una letra: ").lower()   
 
-    if letter in guessed:
+    if len(letter) != 1 or not letter.isalpha(): #solo se necesita que se ingrese una letra (A)
+        print ("Entrada no valida")
+    elif letter in guessed:
         print("Ya usaste esa letra.")
     elif letter in word:
         guessed.append(letter)
@@ -48,4 +50,3 @@ while attempts > 0:
     print()
 else:
     print(f"¡Perdiste! La palabra era: {word}") 
-    
