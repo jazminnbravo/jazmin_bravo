@@ -1,22 +1,24 @@
 import random
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-] 
+words = {"programacion" : [
+    "python","programa","funcion","bucle"],
+    "datos" : ["variable","cadena","entero","lista"],} #Agrupe las palabras segun su categoria (C)
 
-word = random.choice(words)
+print("¡Bienvenido al Ahorcado!")
+print( "Categorias disponibles:") 
+
+for categoria in words: #muestro las categorias disponibles (C)
+   print ("-",categoria)
+
+Selec_categoria = input ("Ingresa una categoria: ").lower()  #Pido la categoria (C)
+
+while Selec_categoria not in words: 
+    print ("categoria invalida") #control de que existe la categoria (C) 
+    Selec_categoria = input ("Ingresa una categoria: ").lower()
+
+word = random.choice(words[Selec_categoria])
 guessed = []
 attempts = 6 
 puntaje = 0 #inicializo
-
-print("¡Bienvenido al Ahorcado!")
-print()
 
 while attempts > 0:
 # Mostrar progreso: letras adivinadas y guiones para las que faltan
@@ -26,8 +28,8 @@ while attempts > 0:
             progress += letter + " "
         else:
             progress += "_ "
-
     print(progress) 
+    
     # Verificar si el jugador ya adivinó la palabra completa
     if "_" not in progress:
         puntaje += 6 #sumas 6 puntos (B)
