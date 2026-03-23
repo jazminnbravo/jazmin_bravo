@@ -15,13 +15,16 @@ while Selec_categoria not in words:
     print ("categoria invalida") #control de que existe la categoria (C) 
     Selec_categoria = input ("Ingresa una categoria: ").lower()
 
-word = random.choice(words[Selec_categoria])
-guessed = []
-attempts = 6 
+sampled_words = random.sample (words [Selec_categoria],len (words[Selec_categoria])) #todas las palabras mezcladas,sin repetir (D)
+
 puntaje = 0 #inicializo
 
-while attempts > 0:
-# Mostrar progreso: letras adivinadas y guiones para las que faltan
+for word in sampled_words : #una palabra por ronda (D)
+ guessed = []
+ attempts = 6 
+
+ while attempts > 0:
+ # Mostrar progreso: letras adivinadas y guiones para las que faltan
     progress = ""
     for letter in word:
         if letter in guessed:
@@ -53,7 +56,7 @@ while attempts > 0:
         puntaje -= 1 #restas un punto (B)
         print("Esa letra no está en la palabra")
     print()
-else:
+ else:
     puntaje = 0 #perder te deja en cero puntos (B)
     print(f"¡Perdiste! La palabra era: {word}, tu puntaje queda en {puntaje}")
 
