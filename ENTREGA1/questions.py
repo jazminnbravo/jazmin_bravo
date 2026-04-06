@@ -59,4 +59,3 @@ for word in sampled_words : #una palabra por ronda (D)
  else:
     puntaje = 0 #perder te deja en cero puntos (B)
     print(f"¡Perdiste! La palabra era: {word}, tu puntaje queda en {puntaje}")
-
